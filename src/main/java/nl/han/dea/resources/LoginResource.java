@@ -23,7 +23,8 @@ public class LoginResource {
             return Response.ok()
                     .entity(new TokenDTO("123-123", "Erik warnar"))
                     .build();
-        } else {
+        }
+        else {
             return Response.status(Response.Status.UNAUTHORIZED)
                     .entity(new ErrorDTO("Login for user " + user.getName() + " failed."))
                     .build();
