@@ -1,4 +1,4 @@
-package nl.han.dea;
+package nl.han.dea.dto;
 
 public class UserDTO {
     private String name;

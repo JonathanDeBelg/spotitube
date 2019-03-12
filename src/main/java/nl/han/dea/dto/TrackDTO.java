@@ -1,4 +1,4 @@
-package nl.han.dea;
+package nl.han.dea.dto;
 
 public class TrackDTO {
     private String name;
@@ -6,15 +6,15 @@ public class TrackDTO {
     public TrackDTO() {
     }
 
-    public TrackDTO(String name) {
-        this.name = name;
-    }
-
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
+        this.name = name;
+    }
+
+    public TrackDTO(String name) {
         this.name = name;
     }
 }
