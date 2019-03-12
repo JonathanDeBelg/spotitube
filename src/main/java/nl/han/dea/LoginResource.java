@@ -5,7 +5,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("login")
-public class Login {
+public class LoginResource {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
