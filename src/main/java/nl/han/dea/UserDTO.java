@@ -1,13 +1,13 @@
 package nl.han.dea;
 
-public class User {
+public class UserDTO {
     private String name;
     private String password;
 
-    public User() {
+    public UserDTO() {
     }
 
-    public User(String name, String password) {
+    public UserDTO(String name, String password) {
         this.name = name;
         this.password = password;
     }
