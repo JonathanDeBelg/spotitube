@@ -30,13 +30,33 @@ public class LoginResourceTest {
         assertEquals("123-123", actualToken.getToken());
     }
 
-//    @Test
-//    void loginFailure() {
-//        UserDTO userDTO = new UserDTO("Zuen", "1234");
-//        Response actualResult = sut.login(userDTO);
-//        assertEquals(Status.UNAUTHORIZED.getStatusCode(), actualResult.getStatus());
-//
-//        ErrorDTO actualError = (ErrorDTO) actualResult.getEntity();
-//        assertEquals("Login for user Zuen failed ", actualError.getMessage);
-//    }
+    @Test
+    void loginFailureWithWrongInput() {
+        UserDTO userDTO = new UserDTO("Zue", "1234");
+        Response actualResult = sut.login(userDTO);
+        assertEquals(Status.UNAUTHORIZED.getStatusCode(), actualResult.getStatus());
+
+        ErrorDTO actualError = (ErrorDTO) actualResult.getEntity();
+        assertEquals("Login for user Zue failed.", actualError.getMessage());
+    }
+
+    @Test
+    void loginFailureWithNoUserSpecified() {
+        UserDTO userDTO = new UserDTO("", "1234");
+        Response actualResult = sut.login(userDTO);
+        assertEquals(Status.BAD_REQUEST.getStatusCode(), actualResult.getStatus());
+
+        ErrorDTO actualError = (ErrorDTO) actualResult.getEntity();
+        assertEquals("A value is missing in the fields.", actualError.getMessage());
+    }
+
+    @Test
+    void loginFailureWithNoPasswordSpecified() {
+        UserDTO userDTO = new UserDTO("Zuen", "");
+        Response actualResult = sut.login(userDTO);
+        assertEquals(Status.BAD_REQUEST.getStatusCode(), actualResult.getStatus());
+
+        ErrorDTO actualError = (ErrorDTO) actualResult.getEntity();
+        assertEquals("A value is missing in the fields.", actualError.getMessage());
+    }
 }
