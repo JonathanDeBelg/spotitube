@@ -22,7 +22,7 @@ public class LoginResourceTest {
 
     @Test
     void loginSucces() {
-        UserDTO userDTO = new UserDTO("Zuen", "1234");
+        UserDTO userDTO = new UserDTO("Zuen", "1234", "Zuen");
         Response actualResult = sut.login(userDTO);
         assertEquals(Status.OK.getStatusCode(), actualResult.getStatus());
         TokenDTO actualToken = (TokenDTO) actualResult.getEntity();
@@ -32,7 +32,7 @@ public class LoginResourceTest {
 
     @Test
     void loginFailureWithWrongInput() {
-        UserDTO userDTO = new UserDTO("Zue", "1234");
+        UserDTO userDTO = new UserDTO("Zue", "1234", "Zuen");
         Response actualResult = sut.login(userDTO);
         assertEquals(Status.UNAUTHORIZED.getStatusCode(), actualResult.getStatus());
 
@@ -42,7 +42,7 @@ public class LoginResourceTest {
 
     @Test
     void loginFailureWithNoUserSpecified() {
-        UserDTO userDTO = new UserDTO("", "1234");
+        UserDTO userDTO = new UserDTO("", "1234", "Zuen");
         Response actualResult = sut.login(userDTO);
         assertEquals(Status.BAD_REQUEST.getStatusCode(), actualResult.getStatus());
 
@@ -52,7 +52,7 @@ public class LoginResourceTest {
 
     @Test
     void loginFailureWithNoPasswordSpecified() {
-        UserDTO userDTO = new UserDTO("Zuen", "");
+        UserDTO userDTO = new UserDTO("Zuen", "", "Zuen");
         Response actualResult = sut.login(userDTO);
         assertEquals(Status.BAD_REQUEST.getStatusCode(), actualResult.getStatus());
 

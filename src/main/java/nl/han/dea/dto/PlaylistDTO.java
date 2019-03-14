@@ -8,6 +8,15 @@ public class PlaylistDTO {
     private boolean owner;
     private ArrayList<TrackDTO> tracks = new ArrayList<>();
 
+    public PlaylistDTO(int id, String name, boolean owner) {
+        this.id = id;
+        this.name = name;
+        this.owner = owner;
+        tracks.add(new TrackDTO("Jaap"));
+        tracks.add(new TrackDTO("Jan"));
+        tracks.add(new TrackDTO("Krat pils"));
+    }
+
     public int getId() {
         return id;
     }
@@ -38,14 +47,5 @@ public class PlaylistDTO {
 
     public void setTracks(ArrayList<TrackDTO> tracks) {
         this.tracks = tracks;
-    }
-
-    public PlaylistDTO(int id, String name, boolean owner) {
-        this.id = id;
-        this.name = name;
-        this.owner = owner;
-        tracks.add(new TrackDTO("Jaap"));
-        tracks.add(new TrackDTO("Jan"));
-        tracks.add(new TrackDTO("Krat pils"));
     }
 }

@@ -27,4 +27,8 @@ public class PlaylistsDTO {
     public void setLength(int length) {
         this.length = length;
     }
+
+    public void deletePlaylist(int playlistId) {
+//        playlists.removeIf(playlistDTO -> PlaylistDTO.getId().equals(playlistId));
+    }
 }
