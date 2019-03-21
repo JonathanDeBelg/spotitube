@@ -19,6 +19,8 @@ public class ConnectionFactory {
     private Properties properties;
 
     public ConnectionFactory() {
+        System.out.println("Driver:" + properties.getProperty("db.driver"));
+        loadDriver();
         properties = getProperties();
     }
 
@@ -44,7 +46,8 @@ public class ConnectionFactory {
 
     public Connection getConnection() {
         try {
-            return DriverManager.getConnection(properties.getProperty("db.url"),
+            return DriverManager.getConnection(
+                    properties.getProperty("db.url"),
                     properties.getProperty("db.user"),
                     properties.getProperty("db.pass"));
         } catch (SQLException e) {

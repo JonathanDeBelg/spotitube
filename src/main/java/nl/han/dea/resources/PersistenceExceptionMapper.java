@@ -12,6 +12,7 @@ public class PersistenceExceptionMapper implements ExceptionMapper<SpotitubePers
 
     @Override
     public Response toResponse(SpotitubePersistenceException e) {
+        e.printStackTrace();
         return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
                 .entity(new ErrorDTO("Database connection error. Please try again later."))
                 .build();
