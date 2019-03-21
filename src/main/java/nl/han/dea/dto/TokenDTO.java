@@ -4,6 +4,9 @@ public class TokenDTO {
     private String token;
     private String user;
 
+    public TokenDTO() {
+    }
+
     public TokenDTO(String token, String user) {
         this.token = token;
         this.user = user;

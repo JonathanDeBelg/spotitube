@@ -6,10 +6,11 @@ public class PlaylistsDTO {
     private ArrayList<PlaylistDTO> playlists = new ArrayList<>();
     private int length;
 
+    public PlaylistsDTO() {
+    }
+
     public PlaylistsDTO(int length) {
         this.length = length;
-        playlists.add(new PlaylistDTO(1, "Elemenatory", true));
-        playlists.add(new PlaylistDTO(2, "Musketiers 2", false));
     }
 
     public ArrayList<PlaylistDTO> getPlaylists() {
@@ -26,9 +27,5 @@ public class PlaylistsDTO {
 
     public void setLength(int length) {
         this.length = length;
-    }
-
-    public void deletePlaylist(int playlistId) {
-//        playlists.removeIf(playlistDTO -> PlaylistDTO.getId().equals(playlistId));
     }
 }

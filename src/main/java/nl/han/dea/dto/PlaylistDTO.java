@@ -8,6 +8,9 @@ public class PlaylistDTO {
     private boolean owner;
     private ArrayList<TrackDTO> tracks = new ArrayList<>();
 
+    public PlaylistDTO() {
+    }
+
     public PlaylistDTO(int id, String name, boolean owner) {
         this.id = id;
         this.name = name;
@@ -33,7 +36,7 @@ public class PlaylistDTO {
         this.name = name;
     }
 
-    public boolean isOwner() {
+    public boolean getOwner () {
         return owner;
     }
 
