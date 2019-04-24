@@ -5,10 +5,19 @@ import nl.han.dea.dto.UserDTO;
 import nl.han.dea.persistence.dao.TokenDAO;
 
 import javax.enterprise.inject.Default;
+import javax.inject.Inject;
 
 @Default
 public class TokenValidationServiceImpl implements TokenValidationService {
-    TokenDAO tokenDAO = new TokenDAO();
+    TokenDAO tokenDAO;
+
+    public TokenValidationServiceImpl() {
+    }
+
+    @Inject
+    public TokenValidationServiceImpl(TokenDAO tokenDAO) {
+        this.tokenDAO = tokenDAO;
+    }
 
     @Override
     public UserDTO validateToken(String token) {
@@ -17,7 +26,7 @@ public class TokenValidationServiceImpl implements TokenValidationService {
         if (userDTO != null) {
             return userDTO;
         } else {
-            throw new SpotitubeTokenValidationException("Token doesn't exist for user " + userDTO.getUser());
+            throw new SpotitubeTokenValidationException("Token doesn't exist");
         }
     }
 }

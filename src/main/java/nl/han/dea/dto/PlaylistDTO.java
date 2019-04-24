@@ -15,9 +15,6 @@ public class PlaylistDTO {
         this.id = id;
         this.name = name;
         this.owner = owner;
-        tracks.add(new TrackDTO("Jaap"));
-        tracks.add(new TrackDTO("Jan"));
-        tracks.add(new TrackDTO("Krat pils"));
     }
 
     public int getId() {
@@ -36,7 +33,7 @@ public class PlaylistDTO {
         this.name = name;
     }
 
-    public boolean getOwner () {
+    public boolean isOwner() {
         return owner;
     }
 

@@ -19,13 +19,12 @@ public class ConnectionFactory {
     private Properties properties;
 
     public ConnectionFactory() {
-        System.out.println("Driver:" + properties.getProperty("db.driver"));
-        loadDriver();
         properties = getProperties();
+        loadDriver();
     }
 
-    private Properties getProperties(){
-        Properties properties = new Properties();
+    public Properties getProperties(){
+        properties = new Properties();
         String propertiesPath = getClass()
                 .getClassLoader()
                 .getResource("")
@@ -58,6 +57,7 @@ public class ConnectionFactory {
     private void loadDriver() {
         try {
             Class.forName(properties.getProperty("db.driver"));
+
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
